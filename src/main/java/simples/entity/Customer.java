@@ -1,6 +1,5 @@
 package simples.entity;
 
-import sun.reflect.CallerSensitive;
 
 import javax.persistence.*;
 

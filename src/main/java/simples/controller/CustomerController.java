@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import simples.entity.Customer;
-import simples.service.impl.CustomerService;
+import simples.service.CustomerService;
 
 import java.util.List;
 
@@ -21,9 +21,9 @@ public class CustomerController {
 
     @RequestMapping(value="/main")
     public ModelAndView main(){
-        List<Customer> customerList = customerService.getCustomerList();
-        ModelAndView modelAndView = new ModelAndView("/pages/main");
-        modelAndView.addObject("customerList",customerList);
+        List<Customer> customer = customerService.getCustomerList();
+        ModelAndView modelAndView = new ModelAndView("/customerList");
+        modelAndView.addObject("customerList",customer);
 
         return modelAndView;
     }

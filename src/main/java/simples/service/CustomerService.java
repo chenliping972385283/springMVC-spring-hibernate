@@ -1,4 +1,4 @@
-package simples.service.impl;
+package simples.service;
 
 import simples.entity.Customer;
 
