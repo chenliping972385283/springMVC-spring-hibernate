@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/aop
+                            http://www.springframework.org/schema/aop/spring-aop.xsd
+                            http://www.springframework.org/schema/tx
+                            http://www.springframework.org/schema/tx/spring-tx.xsd
+                            http://www.springframework.org/schema/util
+                            http://www.springframework.org/schema/util/spring-util.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <description>shiro components</description>
+    <!-- 定义一个用户信息校验的类，将登陆信息与realm提供的后台信息进行核对，核对成功就返回true，否则抛出异常-->
+    <bean id="myCredentialsMatcher" class="simples.security.MyCredentialsMatcher"/>
+    <!-- 继承自AuthorizingRealm-->
+    <bean id="myRealm" class="simples.relams.MyRealm">
+        <property name="credentialsMatcher" ref="myCredentialsMatcher"/>
+    </bean>
+
+    <!-- 缓存管理-->
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
+    <!-- 这里主要设置 自定义的单realm应用，可使用‘realm’属性替代-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"/>
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+
+    <!-- web应用中，shiro可控制的web请求必须经过shiro对基于spring的web应用提供了完美的支持-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!--shiro的核心安全接口，这个属性是必须得-->
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login.do"/>
+        <property name="successUrl" value="/index.do"/>
+        <!-- 用户访问未对其授权的资源时，所显示的链接-->
+        <property name="unauthorizedUrl" value="/login.do"/>
+        <!-- shiro链接约束配置，即过滤连的定义-->
+        <property name="filterChainDefinitions">
+            <value>
+                /login**=anon
+                /dologin**=anon
+                /index**=anon
+                /user/info**=authc
+                /admin/info**=authc
+            </value>
+        </property>
+    </bean>
+
+    <!-- 保证实现了shiro内部lifecycle函数的bean的执行-->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+
+    <!-- 开启shiro的注解（如@RequiresRoles,@RequiresPermissions）,需借助springaop扫描使用shiro注解的类-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"></bean>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"></property>
+    </bean>
+</beans>

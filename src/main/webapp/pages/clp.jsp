@@ -1,4 +1,4 @@
-<html >
+<html>
 <head>
     <meta charset="utf-8">
     <title>小论坛</title>
@@ -13,8 +13,20 @@
         </div>
         <div class="col-md-2">
             <ul class="nav navbar-nav">
-                    <li><a href="${request.contextPath}/register/registryUser.do">注册</a></li>
-                    <li><a href="${request.contextPath}/index/login.do">登录</a></li>
+                <shiro:guest>
+                    <li><a href="<c:url value="${request.contextPath}/register/registryUser.do"/>">注册</a></li>
+                    <%--
+                                        <li><a href="<c:url value="${request.contextPath}/index/login.do"/>">登录</a></li>
+                    --%>
+                </shiro:guest>
+
+                <shiro:user>
+                    <li><a href="<c:url value="${request.contextPath}/index.do"/>"><shiro:principal/></a></li>
+                    <%--
+                                        <li><a href="<c:url value="${request.contextPath}/index/logout.do"/>">退出</a></li>
+                    --%>
+                </shiro:user>
+
             </ul>
         </div>
     </div>

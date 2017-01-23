@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8">
-    <title>注册信息</title>
+    <title>登陆信息</title>
 
     <link href="${request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
@@ -10,20 +10,25 @@
 <body>
 <div style="background-color: whitesmoke;height: 650px">
     <div class="container" style="border:1px solid whitesmoke;background-color: white;height: 85%">
-        <div class="row" style="margin-top: 50px;">
+        <div class="row" style="margin-top: 80px;">
             <div class="col-sm-6"></div>
-            <div class="col-sm-6" style="margin-left: -35px;"><h3 style="color: cornflowerblue">欢迎登陆</h3></div>
+            <div class="col-sm-6" style="margin-left: -24px;"><h3 style="color: cornflowerblue">欢迎登陆</h3></div>
         </div>
         <div class="row"  style="margin-top: 40px;">
                 <div class="col-sm-3"></div>
-                <form class="form-horizontal col-sm-9" role="form" action="${request.contextPath}/register/addUser.do">
+                <form class="form-horizontal col-sm-9" role="form" action="${request.contextPath}/register/doLogin.do">
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">邮箱</label>
                         <div class="col-sm-5">
                             <input type="email" name="email" class="form-control" id="email" placeholder="请输入您的邮箱地址">
                         </div>
                     </div>
-
+                    <div class="form-group" style="margin-top: 30px;">
+                        <label for="password" class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-5">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="请输入您的邮箱密码">
+                        </div>
+                    </div>
                     <div class="form-group" style="margin-top: 30px;">
                         <label for="username" class="col-sm-2 control-label">用户名</label>
                         <div class="col-sm-5">
@@ -32,22 +37,11 @@
                     </div>
 
                     <div class="form-group" style="margin-top: 30px;">
-                        <label for="password" class="col-sm-2 control-label">密码</label>
-                        <div class="col-sm-5">
-                            <input type="password" class="form-control" name="password" id="password" placeholder="请输入您的邮箱密码">
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-group" style="margin-top: 50px;">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-5">
                             <button type="submit" class="btn btn-default col-sm-12" style="background-color: cornflowerblue">立即注册</button>
                         </div>
                     </div>
-
-
                 </form>
         </div>
     </div>
