@@ -16,7 +16,7 @@
         </div>
         <div class="row"  style="margin-top: 40px;">
                 <div class="col-sm-3"></div>
-                <form class="form-horizontal col-sm-9" role="form" action="${request.contextPath}/register/doLogin.do">
+                <form class="form-horizontal col-sm-9" role="form" action="${request.contextPath}/doLogin.do">
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">邮箱</label>
                         <div class="col-sm-5">
@@ -29,17 +29,12 @@
                             <input type="password" class="form-control" name="password" id="password" placeholder="请输入您的邮箱密码">
                         </div>
                     </div>
-                    <div class="form-group" style="margin-top: 30px;">
-                        <label for="username" class="col-sm-2 control-label">用户名</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" name="username" id="username" placeholder="请输入您的用户名">
-                        </div>
-                    </div>
+
 
                     <div class="form-group" style="margin-top: 30px;">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-5">
-                            <button type="submit" class="btn btn-default col-sm-12" style="background-color: cornflowerblue">立即注册</button>
+                            <button type="submit" class="btn btn-default col-sm-12" style="background-color: cornflowerblue">立即登录</button>
                         </div>
                     </div>
                 </form>

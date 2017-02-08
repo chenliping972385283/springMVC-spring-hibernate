@@ -44,7 +44,8 @@ public class MyRealm  extends AuthorizingRealm{
         if(user == null){
             throw new UnknownAccountException();
         }
-        AuthenticationInfo auth = new SimpleAuthenticationInfo(token.getPrincipal(),user.getUsername(),user.getPassword());
+        SimpleAuthenticationInfo auth = new SimpleAuthenticationInfo(token.getPrincipal(),user.getUsername(),user.getPassword());
+        auth.setCredentials(user.getPassword());
         //返回登录成功的结果
         return auth;
     }

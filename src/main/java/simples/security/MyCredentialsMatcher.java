@@ -2,6 +2,8 @@ package simples.security;
 
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,10 +26,16 @@ public class MyCredentialsMatcher extends HashedCredentialsMatcher {
         UsernamePasswordToken utoken =  (UsernamePasswordToken)authenticationToken;
         SimpleAuthenticationInfo simpleAuthenticationInfo = (SimpleAuthenticationInfo)authenticationInfo;
 
+        String username = (String)simpleAuthenticationInfo.getPrincipals().getPrimaryPrincipal();
+        System.out.println(username);
+        String password =  (String)simpleAuthenticationInfo.getCredentials();
         log.info("登陆用户的信息：{},{}",utoken.getUsername(),new String(utoken.getPassword()));
         log.info("验证的用户名：{}",(String) simpleAuthenticationInfo.getPrincipals().getPrimaryPrincipal());
         log.info("验证的口令：{}",simpleAuthenticationInfo.getCredentials());
-
-        return true;
+        if(new String(utoken.getPassword()).equals(password)&&utoken.getUsername().equals(username)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

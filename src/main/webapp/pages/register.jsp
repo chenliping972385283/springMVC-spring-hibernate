@@ -12,7 +12,7 @@
     <div class="container" style="border:1px solid whitesmoke;background-color: white;height: 85%">
         <div class="row" style="margin-top: 50px;">
             <div class="col-sm-6"></div>
-            <div class="col-sm-6" style="margin-left: -35px;"><h3 style="color: cornflowerblue">欢迎登陆</h3></div>
+            <div class="col-sm-6" style="margin-left: -35px;"><h3 style="color: cornflowerblue">注册信息</h3></div>
         </div>
         <div class="row"  style="margin-top: 40px;">
                 <div class="col-sm-3"></div>

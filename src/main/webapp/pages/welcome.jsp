@@ -1,4 +1,4 @@
-<html >
+<html>
 <head>
     <meta charset="utf-8">
     <title>小论坛</title>
@@ -11,13 +11,27 @@
             <img class="img-responsive" style="float: left" src="${request.contextPath}/images/csdn.png"/>
             <h3 style="float: left; color: white; margin-top: 10px; margin-left: 10px; margin-bottom: 10px;">论坛</h3>
         </div>
-        <div class="col-md-2">
-            <ul class="nav navbar-nav">
-                    <li><a href="${request.contextPath}/register/registryUser.do">注册</a></li>
-                    <li><a href="${request.contextPath}/index/login.do">登录</a></li>
-            </ul>
-        </div>
-    </div>
+        <@userLogin>
+        <#if loginuser??>
+
+            <div class="col-md-2">
+                <ul class="nav navbar-nav">
+                    <li><a href="">
+                        <#if loginuser.email??>${loginuser.email},欢迎您！</#if>
+                    </a></li>
+                    <li><a href="${request.contextPath}/loginOut.do">退出</a></li>
+                </ul>
+            </div>
+            <#else>
+                <div class="col-md-2">
+                    <ul class="nav navbar-nav">
+                        <li><a href="${request.contextPath}/register/registryUser.do">注册</a></li>
+                        <li><a href="${request.contextPath}/login.do">登录</a></li>
+                    </ul>
+                </div>
+        </#if>
+    </@userLogin>
+</div>
 </div>
 <div class="navbar navbar-default" role="navigation" style="margin-top: -20px;padding: 0px;background-color: white">
     <div class="container-fluid">
@@ -160,7 +174,7 @@
                     <div class="row">
                         <div class="btn btn-warning col-md-12"
                              style="height: 50px;margin-top: -10px;text-align: center;line-height:35px;font-size: 20px"
-                             type="button">我要发帖
+                             type="button"  id="boardButton">我要发帖
                         </div>
                     </div>
                 </div>
@@ -649,19 +663,19 @@
 
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <img src="${request.contextPath}/images/c5.png" style="width: 100%;height: 100%">
+                                    <img src="${request.contextPath}/images/c5.png" style="width: 100%">
                                     <div class="carousel-caption">
-                                        <%--放文字--%>
+                                        <!--放文字-->
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <img src="${request.contextPath}/images/c6.png" style="width: 100%;height: 100%">
+                                    <img src="${request.contextPath}/images/c6.png" style="width: 100%">
                                 </div>
                                 <div class="item">
-                                    <img src="${request.contextPath}/images/c7.png" style="width: 100%;height: 100%">
+                                    <img src="${request.contextPath}/images/c7.png" style="width: 100%">
                                 </div>
                                 <div class="item">
-                                    <img src="${request.contextPath}/images/c8.png" style="width: 100%;height: 100%">
+                                    <img src="${request.contextPath}/images/c8.png" style="width: 100%">
                                 </div>
                             </div>
                         </div>
@@ -721,7 +735,11 @@
 </div>
 <script src="${request.contextPath}/js/jquery.min.js"></script>
 <script src="${request.contextPath}/js/bootstrap.min.js"></script>
-<script type="javascript">
+<script>
+    $('#boardButton').on('click', function () {
+        //var $btn = $(this).button('loading');
+        window.location.href = "${request.contextPath}/user/postBoard.do";
+    })
 </script>
 </body>
 </html>
