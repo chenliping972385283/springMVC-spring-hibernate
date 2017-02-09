@@ -61,13 +61,13 @@
             <tx:method name="save*" propagation="REQUIRED"/>
             <tx:method name="update*" propagation="REQUIRED"/>
             <tx:method name="delete*" propagation="REQUIRED"/>
-            <tx:method name="get    *" propagation="REQUIRED"/>
+            <tx:method name="get*" propagation="REQUIRED"/>
             <tx:method name="*" propagation="SUPPORTS"  read-only="true"/>
         </tx:attributes>
     </tx:advice>
     
     <aop:config proxy-target-class="true">
-        <aop:pointcut  expression="execution(* simples.service.impl.*.*(..))" id="pointcut"/>
+        <aop:pointcut  expression="execution(* simples.service.*.*(..))" id="pointcut"/>
         <aop:advisor advice-ref="advice" pointcut-ref="pointcut"/>
     </aop:config>
 </beans>

@@ -16,18 +16,18 @@
         </div>
         <div class="row"  style="margin-top: 40px;">
                 <div class="col-sm-3"></div>
-                <form class="form-horizontal col-sm-9" role="form" action="${request.contextPath}/register/addUser.do">
-                    <div class="form-group">
+                <form class="form-horizontal col-sm-9" role="form" action="${request.contextPath}/register/addUser.do" method="post">
+                    <!--<div class="form-group">
                         <label for="email" class="col-sm-2 control-label">邮箱</label>
                         <div class="col-sm-5">
                             <input type="email" name="email" class="form-control" id="email" placeholder="请输入您的邮箱地址">
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="form-group" style="margin-top: 30px;">
                         <label for="username" class="col-sm-2 control-label">用户名</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="username" id="username" placeholder="请输入您的用户名">
+                            <input type="text" class="form-control" name="username" id="username" placeholder="请输入手机或email">
                         </div>
                     </div>
 

@@ -17,7 +17,7 @@
             <div class="col-md-2">
                 <ul class="nav navbar-nav">
                     <li><a href="">
-                        <#if loginuser.email??>${loginuser.email},欢迎您！</#if>
+                        <#if loginuser.username??>${loginuser.username},欢迎您！</#if>
                     </a></li>
                     <li><a href="${request.contextPath}/loginOut.do">退出</a></li>
                 </ul>

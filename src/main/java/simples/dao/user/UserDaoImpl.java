@@ -32,7 +32,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserByUsername(String username) {
-        String hql="from User u where u.email = ? ";
+        String hql="from User u where u.username = ? ";
         Query query = getSession().createQuery(hql);
         query.setParameter(0,username);
         User user  = (User)query.uniqueResult();

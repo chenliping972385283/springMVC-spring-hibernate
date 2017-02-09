@@ -23,7 +23,7 @@ public class LoginController {
     @RequestMapping("/doLogin")
     public String doLogin(HttpServletRequest request,Model model,User user){
         String msg="";
-        String username = request.getParameter("email");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
         UsernamePasswordToken token = new UsernamePasswordToken(username,password);
         token.setRememberMe(true);

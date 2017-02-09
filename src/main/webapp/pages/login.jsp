@@ -18,9 +18,9 @@
                 <div class="col-sm-3"></div>
                 <form class="form-horizontal col-sm-9" role="form" action="${request.contextPath}/doLogin.do">
                     <div class="form-group">
-                        <label for="email" class="col-sm-2 control-label">邮箱</label>
+                        <label for="username" class="col-sm-2 control-label">用户名</label>
                         <div class="col-sm-5">
-                            <input type="email" name="email" class="form-control" id="email" placeholder="请输入您的邮箱地址">
+                            <input type="email" name="username" class="form-control" id="username" placeholder="请输入您的手机或用户名">
                         </div>
                     </div>
                     <div class="form-group" style="margin-top: 30px;">

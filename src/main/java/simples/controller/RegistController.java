@@ -4,6 +4,7 @@ import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import simples.entity.Customer;
 import simples.entity.User;
@@ -29,11 +30,11 @@ public class RegistController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/addUser")
+    @RequestMapping(value="/addUser",method = RequestMethod.POST)
     public ModelAndView addUser(User user, HttpServletRequest request){
         registryService.addUser(user);
         HttpSession session = request.getSession();
-        session.setAttribute("username",user.getEmail());
+        session.setAttribute("username",user.getUsername());
         ModelAndView modelAndView = new ModelAndView("/registerSuccess");
         return modelAndView;
     }

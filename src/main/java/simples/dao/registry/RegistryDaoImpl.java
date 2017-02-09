@@ -21,6 +21,7 @@ public class RegistryDaoImpl implements RegistryDao{
 
     @Override
     public void addUser(User user) {
+
         getSession().save(user);
     }
 }

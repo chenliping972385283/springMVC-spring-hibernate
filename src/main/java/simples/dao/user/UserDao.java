@@ -8,6 +8,8 @@ import simples.entity.User;
 
 public interface UserDao {
     void addUser(User user);
+
     void deleteUser(User user);
+
     User getUserByUsername(String username);
 }

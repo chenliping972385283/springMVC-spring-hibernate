@@ -87,6 +87,7 @@
             </div>
         </div>
         <div class="row" style="margin-top: 10px">
+            <form  id="boardForm" method="post">
             <table width="100%" cellspacing="0" cellpadding="0" border="1px solid blue" >
                 <colgroup>
                     <col width="140" style="background-color: pink;">
@@ -97,7 +98,7 @@
                     <th style="text-align: center;">文章标题</th>
                     <td>
                         <label>
-                            <input id="topic_title"  autocomplete="off" maxlength="80"  size="60" type="text" style="margin-top: 10px; margin-left: 15px;">
+                            <input id="topic_title"  name="title" autocomplete="off" maxlength="80"  size="60" type="text" style="margin-top: 10px; margin-left: 15px;">
                             <span id="title_count_notice" style="color:red;font-size: 14px;">你还可以输入80个字符</span>
                         </label>
                     </td>
@@ -107,7 +108,7 @@
                     <td>
                         <form role="form" style="margin-top: 10px; margin-left: 15px; width: 90%">
                             <div class="form-group">
-                                <textarea class="form-control" rows="8"></textarea>
+                                <textarea class="form-control" rows="8" name="content"></textarea>
                             </div>
                         </form>
                     </td>
@@ -116,7 +117,7 @@
                     <th style="text-align: center;">文章标签</th>
                     <td>
                         <label>
-                            <input   autocomplete="off" maxlength="80"  size="60" type="text" style="margin-top: 10px; margin-left: 15px;">
+                            <input   name="label" autocomplete="off" maxlength="80"  size="60" type="text" style="margin-top: 10px; margin-left: 15px;">
                             <span style="color:red;font-size: 14px;">最多添加5个标签</span>
                         </label>
                     </td>
@@ -126,10 +127,10 @@
                     <td>
                         <form role="form" style="margin-top: 10px; margin-left: 15px; width: 90%">
                             <div class="form-group col-md-4">
-                                <select class="form-control" style="margin-left: -14px;">
+                                <select class="form-control" style="margin-left: -14px;" name="boardSelection">
                                     <option>--选择大板块--</option>
-                                    <option>技术区</option>
-                                    <option>生活区</option>
+                                    <option value="0">技术区</option>
+                                    <option value="1">生活区</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
@@ -150,7 +151,7 @@
                     <td>
                         <label>
                             <span  style="font-size: 14px; margin-left: 15px;">给分</span>
-                            <input   autocomplete="off" maxlength="80"  size="60" type="text" style="margin-top: 10px;width: 60px"  >
+                            <input   name="score" autocomplete="off" maxlength="80"  size="60" type="text" style="margin-top: 10px;width: 60px"  >
                             <span  style="font-size: 14px; margin-left: 6px;">(1~100)</span>
                         </label>
                     </td>
@@ -162,6 +163,7 @@
                         <div class="btn btn-primary "
                              style="height: 30px; margin-left: 15px;margin-top:10px;text-align: center;line-height:20px;width: 150px;"
                              type="button"  id="boardButton">发表帖子
+
                         </div>
                         <div style="border:1px solid powderblue;width: 50%;margin-left: 15px;margin-top: 10px;margin-bottom: 10px;">
                             <ol style="font-size: 12px;margin-left: -15px;">
@@ -172,9 +174,10 @@
                         </div>
                     </td>
                 </tr>
-
                 </tbody>
             </table>
+                <input type="submit" style="display: none" id="boardSubmit" />
+            </form>
         </div>
     </div>
 </div>
@@ -221,5 +224,14 @@
         </div>
     </div>
 </div>
+<script src="${request.contextPath}/js/jquery.min.js"></script>
+<script src="${request.contextPath}/js/bootstrap.min.js"></script>
+<script>
+  $('#boardButton').on('click', function () {
+      var $btn = $(this).button('loading');
+      $("#boardForm").attr("action","${request.contextPath}/user/addBoard.do");
+      $("#boardForm").submit();
+    })
+</script>
 </body>
 </html>
