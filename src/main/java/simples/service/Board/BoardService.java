@@ -10,7 +10,7 @@ import simples.entity.Board;
  */
 public interface BoardService {
 
-   void addBoard(Board board);
+   void addBoard(Board board,String username);
 
     Board getBoardById(int id);
 

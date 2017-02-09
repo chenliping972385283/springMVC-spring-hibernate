@@ -20,6 +20,8 @@ public class Board {
 
     private int score;
 
+    private int isFirst;
+
     @Id
     @Column()
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -67,9 +69,6 @@ public class Board {
         this.boardSelection = boardSelection;
     }
 
-
-
-
     @Column
     public int getScore() {
         return score;
@@ -77,5 +76,13 @@ public class Board {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public int getIsFirst() {
+        return isFirst;
+    }
+
+    public void setIsFirst(int isFirst) {
+        this.isFirst = isFirst;
     }
 }

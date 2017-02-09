@@ -18,7 +18,10 @@
                     <div class="col-md-4">
                         <ul class="nav navbar-nav">
                             <li><a href="">
-                                <#if loginuser.email??>${loginuser.email},欢迎您！</#if>
+                                <#if loginuser.username??>
+                                    ${loginuser.username},欢迎您！
+                                    <input type="hidden" name="username" value="${loginuser.username}" id="username"/>
+                                </#if>
                             </a></li>
                             <li><a href="${request.contextPath}/loginOut.do">退出</a></li>
                         </ul>
@@ -125,7 +128,7 @@
                 <tr>
                     <th style="text-align: center;">选择板块</th>
                     <td>
-                        <form role="form" style="margin-top: 10px; margin-left: 15px; width: 90%">
+                        <div  style="margin-top: 10px; margin-left: 15px; width: 90%">
                             <div class="form-group col-md-4">
                                 <select class="form-control" style="margin-left: -14px;" name="boardSelection">
                                     <option>--选择大板块--</option>
@@ -143,9 +146,23 @@
                             <div  class="col-md-4" style="margin-top: 6px;">
                                 <span style="color:red;font-size: 14px;margin-left: -30px">请选择要发帖的板块</span>
                             </div>
-                        </form>
+                        </div>
                     </td>
                 </tr>
+
+                <tr>
+                    <th style="text-align: center;">是否置顶</th>
+                    <td>
+                        <div class="form-group col-md-2" style="margin-top: 10px; margin-left: 15px;">
+                            <select class="form-control" style="margin-left: -14px;" name="isFirst">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+
+
                 <tr>
                     <th style="text-align: center;">帖子分数</th>
                     <td>
@@ -229,8 +246,11 @@
 <script>
   $('#boardButton').on('click', function () {
       var $btn = $(this).button('loading');
-      $("#boardForm").attr("action","${request.contextPath}/user/addBoard.do");
+      var username = $("#username").val();
+      console.info(username);
+      $("#boardForm").attr("action","${request.contextPath}/user/addBoard.do?username="+username);
       $("#boardForm").submit();
+
     })
 </script>
 </body>

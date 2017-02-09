@@ -35,11 +35,12 @@ public class BoardController {
      * 发布帖子
      */
     @RequestMapping(value="/addBoard",method = RequestMethod.POST)
-    public ModelAndView addBoard(Board board, HttpServletRequest request) {
+    public ModelAndView addBoard(Board board, HttpServletRequest request,String username) {
+            System.out.println(username);
             /*board.setTitle(new String(board.getTitle().getBytes("ISO-8859-1"), "utf-8"));
             board.setContent(new String(board.getContent().getBytes("ISO-8859-1"), "utf-8"));
             board.setLabel(new String(board.getLabel().getBytes("ISO-8859-1"), "utf-8"));*/
-            boardService.addBoard(board);
+            boardService.addBoard(board,username);
             return new ModelAndView("/registerSuccess");
 
     }
