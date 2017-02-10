@@ -6,6 +6,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import simples.entity.Board;
+import simples.entity.BoardUserData;
+
+import java.util.List;
 
 /**
  * Created by jinli on 2017/2/8.
@@ -43,5 +46,33 @@ public class BoardDaoImpl implements BoardDao {
     @Override
     public void finshBoard(Board board) {
 
+    }
+
+    @Override
+    public List<BoardUserData> getBoardList(Board board) {
+
+        StringBuilder hql = new StringBuilder("select new simples.entity.BoardUserData(u.username,b.title,b.label) from Board b,User u,BoardUser bu where 1=1");
+        String boardSelection = null;
+        String  isFirst = null;
+        if (board != null) {
+            if(board.getBoardSelection() !=null && !board.getBoardSelection().equals("")){
+                boardSelection = board.getBoardSelection();
+                hql.append(" and b.boardSelection=:boardSelection ");
+            }
+            if(board.getIsFirst()!=null && !board.getIsFirst().equals("")){
+                isFirst  = board.getIsFirst();
+                hql.append(" and b.isFirst=:isFirst ");
+            }
+        }
+        hql.append(" and b.id = bu.boardId ");
+        hql.append(" and u.id = bu.userId");
+        System.out.println(hql.toString());
+        Query query = getSession().createQuery(hql.toString());
+        query.setString("boardSelection",boardSelection);
+        query.setString("isFirst",isFirst);
+        query.setFirstResult(0);
+        query.setMaxResults(11);
+        List<BoardUserData> boardList = query.list();
+        return boardList;
     }
 }

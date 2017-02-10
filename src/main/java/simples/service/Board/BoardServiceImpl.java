@@ -7,7 +7,10 @@ import simples.dao.board.BoardUserDao;
 import simples.dao.user.UserDao;
 import simples.entity.Board;
 import simples.entity.BoardUser;
+import simples.entity.BoardUserData;
 import simples.entity.User;
+
+import java.util.List;
 
 /**
  * Created by jinli on 2017/2/8.
@@ -47,5 +50,10 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public void finshBoard(Board board) {
 
+    }
+
+    @Override
+    public List<BoardUserData> getBoardList(Board board) {
+        return boardDao.getBoardList(board);
     }
 }

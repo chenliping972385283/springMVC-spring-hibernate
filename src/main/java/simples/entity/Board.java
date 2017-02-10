@@ -16,11 +16,11 @@ public class Board {
 
     private String content;
 
-    private int boardSelection;
+    private String  boardSelection;
 
     private int score;
 
-    private int isFirst;
+    private String  isFirst;
 
     @Id
     @Column()
@@ -61,11 +61,11 @@ public class Board {
     }
 
     @Column
-    public int getBoardSelection() {
+    public String getBoardSelection() {
         return boardSelection;
     }
 
-    public void setBoardSelection(int boardSelection) {
+    public void setBoardSelection(String boardSelection) {
         this.boardSelection = boardSelection;
     }
 
@@ -78,11 +78,11 @@ public class Board {
         this.score = score;
     }
 
-    public int getIsFirst() {
+    public String  getIsFirst() {
         return isFirst;
     }
 
-    public void setIsFirst(int isFirst) {
+    public void setIsFirst(String isFirst) {
         this.isFirst = isFirst;
     }
 }

@@ -187,158 +187,29 @@
                     <div class="panel panel-info">
                         <div class="panel-heading">版主推荐-技术区</div>
                         <div class="panel-body">
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">Vc CString 和 string
-                                        类型转换集合
+                            <#list boardJishu as board>
+                                    <div>
+                                        <div class="row" style="font-size: 13px">
+                                            <div class="col-md-3">[VisualEleven推荐]</div>
+                                            <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">${board.title}
+                                            </div>
+                                            <div class="col-md-3" style="margin-left: -35px">${board.label}</div>
+                                            <div class="col-md-1">
+                                                <#if board.username?length lt 9>
+                                                        ${board.username}
+                                                    <#else>
+                                                        ${board.username[0..9]}..
+                                                </#if>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: -15px;margin-bottom: -15px;">
+                                            <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
+                                                color=#111111 size=1>
+                                        </div>
                                     </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[基础类]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">Vc CString 和 string
-                                        类型转换集合
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[基础类]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">Vc CString 和 string
-                                        类型转换集合
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[基础类]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">Vc CString 和 string
-                                        类型转换集合
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[基础类]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">Vc CString 和 string
-                                        类型转换集合
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[基础类]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">Vc CString 和 string
-                                        类型转换集合
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[基础类]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">Vc CString 和 string
-                                        类型转换集合
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[基础类]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">Vc CString 和 string
-                                        类型转换集合
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[基础类]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">Vc CString 和 string
-                                        类型转换集合
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[基础类]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">Vc CString 和 string
-                                        类型转换集合
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[基础类]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-
+                            </#list>
                         </div>
+
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -446,192 +317,28 @@
                     <div class="panel panel-info">
                         <div class="panel-heading">版主推荐-生活区</div>
                         <div class="panel-body">
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[caozhy推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
+                            <#list boardLife as life>
+                                <div>
+                                    <div class="row" style="font-size: 13px">
+                                        <div class="col-md-3">[caozhy推荐]</div>
+                                        <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">${life.title}
+                                        </div>
+                                        <div class="col-md-3" style="margin-left: -35px">${life.label}</div>
+                                        <div class="col-md-1">
+                                            <#if life.username?length lt 9>
+                                                ${life.username}
+                                                <#else>
+                                                    ${life.username[0..9]}..
+                                            </#if>
+                                        </div>
                                     </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">caozhy</div>
+                                    <div style="margin-top: -15px;margin-bottom: -15px;">
+                                        <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
+                                            color=#111111 size=1>
+                                    </div>
                                 </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
+                            </#list>
 
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="row" style="font-size: 13px">
-                                    <div class="col-md-3">[VisualEleven推荐]</div>
-                                    <div class="col-md-5" style="margin-left: -40px;color: #5bc0de">新年分享 - Visual C++
-                                        6.0
-                                        标准版（...
-                                    </div>
-                                    <div class="col-md-2" style="margin-left: -40px">[非技术区]</div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1">C_dm22</div>
-                                </div>
-                                <div style="margin-top: -15px;margin-bottom: -15px;">
-                                    <hr style="border-bottom-style: dotted; border-left-style: dotted; border-right-style: dotted; border-top-style: dotted"
-                                        color=#111111 size=1>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,75 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00000000526b43b5, pid=11104, tid=9324
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_45-b18) (build 1.7.0_45-b18)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.45-b08 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# V  [jvm.dll+0x943b5]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000dcf0000):  JavaThread "http-bio-8888-exec-2" daemon [_thread_in_vm, id=9324, stack(0x0000000014000000,0x0000000014100000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x0000000680000000
+
+Registers:
+RAX=0x000000077ffffe2f, RBX=0x0000000000000047, RCX=0x00000000140fc2f0, RDX=0xffffffff000001d1
+RSP=0x00000000140fc2c8, RBP=0x00000000140fc300, RSI=0x0000000000000730, RDI=0x0000000000000071
+R8 =0x000000007ffffe2f, R9 =0x000000000c88c410, R10=0x0000000000000000, R11=0x0000000000000246
+R12=0x000000000c88c450, R13=0x00000000000001c6, R14=0x000000078001b6f0, R15=0x000000000c88c7f8
+RIP=0x00000000526b43b5, EFLAGS=0x0000000000010296
+
+Top of Stack: (sp=0x00000000140fc2c8)
+0x00000000140fc2c8:   0000000052729b54 00000000000003d8
+0x00000000140fc2d8:   0000000000000720 000000078001b7c8
+0x00000000140fc2e8:   00000000140fc300 000000077ffffe2f
+0x00000000140fc2f8:   00000000000000aa 000000000c88c420
+0x00000000140fc308:   00000000140fc3b0 000000000c88c410
+0x00000000140fc318:   000000000c88c450 00000000134de160
+0x00000000140fc328:   000000078001b7a8 000000078001b6f0
+0x00000000140fc338:   000000005272934c 000000078001b6f0
+0x00000000140fc348:   0000000000000000 00000000140fc3b0
+0x00000000140fc358:   0000000036020000 000000000000e6e8
+0x00000000140fc368:   0000000000000004 0000000000000003
+0x00000000140fc378:   000000000c88c410 000000000000eb08
+0x00000000140fc388:   00000000527295a3 00000000000003d8
+0x00000000140fc398:   000000078001b6f0 00000000134de160
+0x00000000140fc3a8:   00000000000004a8 000000000c5e5978
+0x00000000140fc3b8:   0000093000000047 000000aa000050e8 
+
+Instructions: (pc=0x00000000526b43b5)
+0x00000000526b4395:   cc cc cc cc cc cc cc cc cc cc cc 4c 63 01 41 8d
+0x00000000526b43a5:   44 90 10 48 63 d0 48 8b 01 48 83 e2 fc 49 2b d0
+0x00000000526b43b5:   8b 0c 02 0f b6 c1 89 4c 24 10 0f b6 4c 24 11 c1
+0x00000000526b43c5:   e0 08 0b c1 0f b6 4c 24 12 c1 e0 08 0b c1 0f b6 
+
+
+Register to memory mapping:
+
+RAX=0x000000077ffffe2f is pointing into object: 0x000000077ffffda8
+{constMethod} 
+ - klass: {other class}
+ - constants:       0x000000077fffb248 constant pool [910] for 'freemarker/core/FMParserTokenManager' cache=0x00000007800128d8
+bci_from(000000077FFFFE2F) = 71; print_codes():
+RBX=0x0000000000000047 is an unknown value
+RCX=0x00000000140fc2f0 is pointing into the stack for thread: 0x000000000dcf0000
+RDX=0xffffffff000001d1 is an unknown value
+RSP=0x00000000140fc2c8 is pointing into the stack for thread: 0x000000000dcf0000
+RBP=0x00000000140fc300 is pointing into the stack for thread: 0x000000000dcf0000
+RSI=0x0000000000000730 is an unknown value
+RDI=0x0000000000000071 is an unknown value
+R8 =0x000000007ffffe2f is an unknown value
+R9 =0x000000000c88c410 is an unknown value
+R10=0x0000000000000000 is an unknown value
+R11=0x0000000000000246 is an unknown value
+R12=0x000000000c88c450 is an unknown value
+R13=0x00000000000001c6 is an unknown value
+R14=
