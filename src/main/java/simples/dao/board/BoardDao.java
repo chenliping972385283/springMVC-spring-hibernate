@@ -18,6 +18,6 @@ public interface BoardDao {
 
     void finshBoard(Board board);
 
-    List<BoardUserData> getBoardList(Board board);
+    List<BoardUserData> getBoardList(Board board,int first,int end);
 
 }

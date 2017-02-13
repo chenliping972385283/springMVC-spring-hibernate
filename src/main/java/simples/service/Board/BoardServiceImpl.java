@@ -39,7 +39,7 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public Board getBoardById(int id) {
-        return null;
+        return boardDao.getBoardById(id);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public List<BoardUserData> getBoardList(Board board) {
-        return boardDao.getBoardList(board);
+    public List<BoardUserData> getBoardList(Board board ,int first,int end) {
+        return boardDao.getBoardList(board,first,end);
     }
 }

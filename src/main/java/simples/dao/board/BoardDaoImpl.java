@@ -49,8 +49,7 @@ public class BoardDaoImpl implements BoardDao {
     }
 
     @Override
-    public List<BoardUserData> getBoardList(Board board) {
-
+    public List<BoardUserData> getBoardList(Board board,int first,int end) {
         StringBuilder hql = new StringBuilder("select new simples.entity.BoardUserData(u.username,b.title,b.label) from Board b,User u,BoardUser bu where 1=1");
         String boardSelection = null;
         String  isFirst = null;
@@ -70,8 +69,8 @@ public class BoardDaoImpl implements BoardDao {
         Query query = getSession().createQuery(hql.toString());
         query.setString("boardSelection",boardSelection);
         query.setString("isFirst",isFirst);
-        query.setFirstResult(0);
-        query.setMaxResults(11);
+        query.setFirstResult(first);
+        query.setMaxResults(end);
         List<BoardUserData> boardList = query.list();
         return boardList;
     }

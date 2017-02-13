@@ -21,7 +21,7 @@ public interface BoardService {
 
     void finshBoard(Board board);
 
-    List<BoardUserData> getBoardList(Board board);
+    List<BoardUserData> getBoardList(Board board,int first,int end);
 
 
 
