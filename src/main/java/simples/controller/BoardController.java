@@ -47,7 +47,6 @@ public class BoardController {
     @RequestMapping(value="/boardDetail",method = RequestMethod.GET)
     public ModelAndView boardDetail(int  id){
         Board board = boardService.getBoardById(id);
-
-
+        return new ModelAndView("/boardDetail").addObject("board",board);
     }
 }

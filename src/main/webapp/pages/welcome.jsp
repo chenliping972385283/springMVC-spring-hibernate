@@ -85,17 +85,17 @@
                                         <#list lifeAdv as life>
                                         <li class="col-md-6">
                                             <#if life_index==0>
-                                                <h4 style="color:red;font-weight:bold;">
+                                                <h4 >
                                                     <#if life.title?length lt 14>
-                                                            <a href="${request.contextPath}/user/boardDetail.do?id="+${life.id}> ${life.title}</a>
+                                                            <a style="color:red;font-weight:bold;" href="${request.contextPath}/user/boardDetail.do?id=${life.id}">${life.title}</a>
                                                         <#else>
-                                                            <a href="${request.contextPath}/user/boardDetail.do?id="+${life.id}> ${life.title[0..12]}..</a>
+                                                            <a style="color:red;font-weight:bold;" href="${request.contextPath}/user/boardDetail.do?id=${life.id}">${life.title[0..12]}..</a>
                                                     </#if>
                                                 </h4>
                                             <#elseif life_index==1>
-                                                <h4 style="color:blue;font-weight:bold;"><a href="">${life.title}</a></h4>
+                                                <h4 ><a href="${request.contextPath}/user/boardDetail.do?id=${life.id}" style="color:blue;font-weight:bold;">${life.title}</a></h4>
                                             <#else>
-                                                <h5 ><a href="">${life.title}</a></h5>
+                                                <h5 ><a href="${request.contextPath}/user/boardDetail.do?id=${life.id}" style="color:black;">${life.title}</a></h5>
                                             </#if>
                                         </li>
                                         </#list>
@@ -112,25 +112,37 @@
                                         <#if jishu_index==0>
                                             <h4 style="color:red;font-weight:bold;">
                                                 <#if jishu.title?length lt 14>
-                                                    ${jishu.title}
+                                                    <a style="color:red;font-weight:bold;" href="${request.contextPath}/user/boardDetail.do?id=${jishu.id}">
+                                                        ${jishu.title}
+                                                    </a>
                                                 <#else>
-                                                    ${jishu.title[0..12]}..
+                                                    <a style="color:red;font-weight:bold;" href="${request.contextPath}/user/boardDetail.do?id=${jishu.id}">
+                                                        ${jishu.title[0..12]}..
+                                                    </a>
                                                 </#if>
                                             </h4>
                                         <#elseif jishu_index==1>
                                             <h4 style="color:blue;font-weight:bold;">
                                                 <#if jishu.title?length lt 14>
-                                                     ${jishu.title}
+                                                    <a style="color:blue;font-weight:bold;" href="${request.contextPath}/user/boardDetail.do?id=${jishu.id}">
+                                                        ${jishu.title}
+                                                    </a>
                                                 <#else>
-                                                    ${jishu.title[0..12]}..
+                                                    <a style="color:blue;font-weight:bold;" href="${request.contextPath}/user/boardDetail.do?id=${jishu.id}">
+                                                        ${jishu.title[0..12]}..
+                                                    </a>
                                                 </#if>
                                             </h4>
                                         <#else>
                                             <h5 >
                                                 <#if jishu.title?length lt 20>
-                                                    ${jishu.title}
+                                                    <a style="color:black;" href="${request.contextPath}/user/boardDetail.do?id=${jishu.id}">
+                                                        ${jishu.title}
+                                                    </a>
                                                 <#else>
-                                                    ${jishu.title[0..18]}..
+                                                    <a style="color:black;" href="${request.contextPath}/user/boardDetail.do?id=${jishu.id}">
+                                                        ${jishu.title[0..18]}..
+                                                    </a>
                                                 </#if>
                                             </h5>
                                         </#if>
@@ -201,8 +213,8 @@
                         <div class="panel panel-info">
                             <div class="panel-heading">论坛标兵</div>
                             <div class="panel-body" style="margin-left: -30px" style="font-size: 12px;width: 150px">
-                                <ul class="nav nav-tabs"  style="margin-left: 20px">
-                                    <li  class="active" style="font-size: 12px;width: auto"><a
+                                <ul class="nav nav-tabs"  style="margin-left: 20px;">
+                                    <li  class="active" ><a style="font-size: 12px;width: auto"
                                             href="#jishu" role="tab" data-toggle="tab" aria-controls="jishu">技术区</a>
                                     </li>
                                     <li><a href="#feijishu"

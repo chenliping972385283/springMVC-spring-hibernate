@@ -50,7 +50,7 @@ public class BoardDaoImpl implements BoardDao {
 
     @Override
     public List<BoardUserData> getBoardList(Board board,int first,int end) {
-        StringBuilder hql = new StringBuilder("select new simples.entity.BoardUserData(u.username,b.title,b.label) from Board b,User u,BoardUser bu where 1=1");
+        StringBuilder hql = new StringBuilder("select new simples.entity.BoardUserData(b.id,u.username,b.title,b.label) from Board b,User u,BoardUser bu where 1=1");
         String boardSelection = null;
         String  isFirst = null;
         if (board != null) {
