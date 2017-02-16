@@ -20,7 +20,7 @@
                     <div class="form-group">
                         <label for="username" class="col-sm-2 control-label">用户名</label>
                         <div class="col-sm-5">
-                            <input type="email" name="username" class="form-control" id="username" placeholder="请输入您的手机或用户名">
+                            <input type="text" name="username" class="form-control" id="username" placeholder="请输入您的手机或用户名">
                         </div>
                     </div>
                     <div class="form-group" style="margin-top: 30px;">

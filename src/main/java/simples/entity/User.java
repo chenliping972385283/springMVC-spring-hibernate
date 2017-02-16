@@ -1,6 +1,9 @@
 package simples.entity;
 
+
+
 import javax.persistence.*;
+import java.sql.Blob;
 
 /**
  * Created by jinli on 2017/1/12.
@@ -15,6 +18,8 @@ public class User {
     private String email;
 
     private String password;
+
+    private byte[] imageUrl;
 
     @Column
     @Id
@@ -51,5 +56,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public byte[] getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(byte[] imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

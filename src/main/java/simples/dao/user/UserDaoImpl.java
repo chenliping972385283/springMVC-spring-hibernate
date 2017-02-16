@@ -3,6 +3,7 @@ package simples.dao.user;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import simples.entity.User;
@@ -37,5 +38,12 @@ public class UserDaoImpl implements UserDao {
         query.setParameter(0,username);
         User user  = (User)query.uniqueResult();
         return user;
+    }
+
+    @Override
+    public void updateUser(User user) {
+        Session session = getSession();
+        session.flush();
+        session.update(user);
     }
 }
