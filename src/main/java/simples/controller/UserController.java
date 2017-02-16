@@ -1,5 +1,7 @@
 package simples.controller;
 
+import com.sun.image.codec.jpeg.JPEGCodec;
+import com.sun.image.codec.jpeg.JPEGImageEncoder;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -55,8 +57,6 @@ public class UserController {
         int end = fileName.lastIndexOf(".");
         String saveName = fileName.substring(0, end);
         String resourcePath = "resources/uploadImages/";
-        System.out.println(realPath);
-        System.out.println(saveName);
         File dir = new File(realPath + resourcePath);
         if (!dir.exists()) {
             dir.mkdirs();
@@ -69,7 +69,6 @@ public class UserController {
             e.printStackTrace();
         }
         String srcImageFile = realPath + resourcePath + saveName;
-        System.out.println("@@@@@@@@@@@"+x + "," + "y" +"," +h +"," + w);
         int imageX = Integer.parseInt(x);
         int imageY = Integer.parseInt(y);
         int imageH = Integer.parseInt(h);
@@ -106,17 +105,19 @@ public class UserController {
 
     public void imgCut(String srcImageFile, int x, int y, int desWidth,
                        int desHeight,int originalW,int originalH) {
-        try {
+            try {
+            String realPath = srcImageFile + "_src.jpg";
+            this.resize(realPath,originalW,originalH);
             Image img;
             ImageFilter cropFilter;
-            BufferedImage bi = ImageIO.read(new File(srcImageFile + "_src.jpg"));
-            int srcWidth = originalW;
-            int srcHeight = originalW;
+            BufferedImage bi = ImageIO.read(new File(realPath));
+            int srcWidth = bi.getWidth();
+            int srcHeight = bi.getHeight();
             if (srcWidth >= desWidth && srcHeight >= desHeight) {
-                Image image = bi.getScaledInstance(srcWidth, srcHeight, Image.SCALE_DEFAULT);
+                Image imagee = bi.getScaledInstance(srcWidth, srcHeight, Image.SCALE_DEFAULT);
                 cropFilter = new CropImageFilter(x, y, desWidth, desHeight);
                 img = Toolkit.getDefaultToolkit().createImage(
-                        new FilteredImageSource(image.getSource(), cropFilter));
+                        new FilteredImageSource(imagee.getSource(), cropFilter));
                 BufferedImage tag = new BufferedImage(desWidth, desHeight,
                         BufferedImage.TYPE_INT_RGB);
                 Graphics g = tag.getGraphics();
@@ -132,6 +133,26 @@ public class UserController {
         }
     }
 
+    /**
+     * 压缩图片到置顶大小
+     * @param
+     * @param
+     */
+    public void resize(String srcImagePath,int originalW,int originalH) throws IOException{
+        Image img = ImageIO.read(new File(srcImagePath));// Image对象
+        BufferedImage image = new BufferedImage(originalW, originalH, BufferedImage.TYPE_INT_RGB);// 生成缩略图片
+        image.getGraphics().drawImage(img, 0, 0, originalW, originalH, null);// 绘制缩小后的图
+        FileOutputStream  out = new FileOutputStream(new File(srcImagePath ));// 输出到文件流
+        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
+        encoder.encode(image);
+    }
+
+
+    /**
+     * 显示图片
+     * @param request
+     * @param response
+     */
     @RequestMapping("/loadImage")
     public void loadImage(HttpServletRequest request,HttpServletResponse response){
         Subject subject = SecurityUtils.getSubject();
@@ -141,7 +162,6 @@ public class UserController {
         OutputStream os;
         try {
             os = response.getOutputStream();//定义一个输出流
-
             if (username!=null)
             {
                 byte [] imageUrl= user.getImageUrl();
@@ -154,7 +174,6 @@ public class UserController {
                 os.flush();
                 os.close();
             }
-
         } catch (IOException e) {
 
             e.printStackTrace();
