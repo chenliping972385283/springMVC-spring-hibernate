@@ -100,6 +100,7 @@ public class UserController {
             e.printStackTrace();
         }
         user.setImageUrl(imgageUrl);
+        user.setRelativePath(resourcePath + saveName+"_cut.jpg");
         userService.updateUser(user);
     }
 

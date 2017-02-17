@@ -106,7 +106,7 @@
 
         <div class="row" style="margin-top: 20px;background-color: white;border:1px solid whitesmoke;">
             <div class="col-md-3">
-                <img src="${request.contextPath}/loadImage.do" style="margin-top: 10px;margin-bottom: 10px;width:250px;height:170px;" onclick="changeImage()"/>
+                <img src="${request.contextPath}/${user.relativePath}" style="margin-top: 10px;margin-bottom: 10px;width:250px;height:170px;" onclick="changeImage()"/>
             </div>
             <div class="col-md-9" style="color:black;">
                 <div class="row">

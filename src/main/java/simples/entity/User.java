@@ -21,6 +21,8 @@ public class User {
 
     private byte[] imageUrl;
 
+    private String relativePath;
+
     @Column
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -64,5 +66,13 @@ public class User {
 
     public void setImageUrl(byte[] imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getRelativePath() {
+        return relativePath;
+    }
+
+    public void setRelativePath(String relativePath) {
+        this.relativePath = relativePath;
     }
 }
